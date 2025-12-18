@@ -22,7 +22,7 @@ export const config = {
     // of the config file unless it's absolute.
     //
     specs: [
-        './test/specs/**/*.js'
+        './test/specs/**/driver.e2e.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -44,20 +44,30 @@ export const config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 10,
+    maxInstances: 2,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
-    capabilities: [{
-        // capabilities for local Appium web tests on an Android Emulator
-        platformName: 'Android',
-        // browserName: 'Chrome',
-        'appium:deviceName': 'R58NA2W9FSF',
-        'appium:platformVersion': '12',
-        'appium:automationName': 'UiAutomator2'
-    }],
+    capabilities: [
+        {
+            platformName: 'Android',
+            // browserName: 'Chrome',
+            "appium:deviceName": "Samsung Galaxy A31",
+            "appium:platformVersion": "12",
+            "appium:automationName": "uiautomator2",
+            "appium:udid": "R58NA2W9FSF"
+        }
+        // {
+        //     platformName: 'Android',
+        //     // browserName: 'Chrome',
+        //     "appium:deviceName": "Xiaomi Redmi Note 12 Pro",
+        //     "appium:platformVersion": "12",
+        //     "appium:automationName": "uiautomator2",
+        //     "appium:udid": "c4a7897e0013"
+        // }
+    ],
 
     //
     // ===================

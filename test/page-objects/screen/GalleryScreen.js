@@ -15,9 +15,17 @@ class GalleryScreen {
         return $('android=new UiSelector().text("Sending succeed")');
     }
 
+    get linkToWindowsBtn() {
+        return $('android=new UiSelector().text("Link to Windows")');
+    }
+
     async openTestPhotoSettings() {
         await this.testScreenRecord.click();
         await this.shareBtn.click();
+    }
+
+    async openLinkToWindowsForm() {
+        await this.linkToWindowsBtn.click();
     }
 
     async openBluetoothForm() {

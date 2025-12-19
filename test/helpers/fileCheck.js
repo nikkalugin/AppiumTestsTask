@@ -19,3 +19,10 @@ export async function waitForFile(
 
     throw new Error(`File ${fileName} was not found in ${directory}`);
 };
+
+export function deleteFile(filePath) {
+    if (fs.existsSync(filePath)) {
+        fs.unlinkSync(filePath);
+        console.log(`File deleted: ${filePath}`);
+    }
+}

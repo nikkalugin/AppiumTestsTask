@@ -28,7 +28,7 @@ export async function scrollDown(times = 1) {
                         { type: 'pointerMove', duration: 0, x: 540, y: 200 },
                         { type: 'pointerDown', button: 0 },
                         { type: 'pause', duration: 250 },
-                        { type: 'pointerMove', duration: 1000, x: 540, y: 2000 },
+                        { type: 'pointerMove', duration: 1000, x: 540, y: 2200 },
                         { type: 'pointerUp', button: 0 },
                         { type: 'pause', duration: 250 }
                     ]
@@ -51,7 +51,7 @@ export async function scrollUp(times = 1) {
                     id: 'finger1',
                     parameters: { pointerType: 'touch' },
                     actions: [
-                        { type: 'pointerMove', duration: 0, x: 540, y: 2000 },
+                        { type: 'pointerMove', duration: 0, x: 540, y: 2200 },
                         { type: 'pointerDown', button: 0 },
                         { type: 'pause', duration: 250 },
                         { type: 'pointerMove', duration: 1000, x: 540, y: 200 },

@@ -4,11 +4,15 @@ class WindowsLinkScreen {
     }
 
     get windowsLinkOnBtn() {
-        return $('~MyGoodBoy,On.,Button');
+        return $('~50182laptop,On.,Button');
     }
 
     get shareFilesBtn() {
-        return $('~Tap to share files');
+        return $('android=new UiSelector().className("android.widget.Button").instance(1)');
+    }
+
+    get confirmationText() {
+        return $('android=new UiSelector().text("Sent")');
     }
 
     async clickWindowsLinkBtn() {
@@ -24,8 +28,8 @@ class WindowsLinkScreen {
         await this.shareFilesBtn.click();
     }
 
-    async verifyFileIsSend(text) {
-        await expect(text).toBeDisplayed();
+    async verifyFileIsSend() {
+        await expect(this.confirmationText).toBeDisplayed();
     }
 }
 

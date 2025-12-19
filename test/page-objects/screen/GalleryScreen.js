@@ -1,6 +1,6 @@
 class GalleryScreen {
     get testScreenRecord() {
-        return $('(//android.widget.FrameLayout[@resource-id="com.sec.android.gallery3d:id/deco_view_layout"])[11]');
+        return $('(//android.widget.FrameLayout[@resource-id="com.sec.android.gallery3d:id/deco_view_layout"])[10]');
     }
 
     get shareBtn() {

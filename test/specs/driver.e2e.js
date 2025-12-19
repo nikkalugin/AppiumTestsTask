@@ -1,7 +1,8 @@
-import {  } from '@wdio/globals'
+import { } from '@wdio/globals'
 import { terminateApp, activateApp, scrollDown, scrollUp } from '../helpers/appStatesHelper';
 import WindowsLinkScreen from '../page-objects/screen/WindowsLinkScreen';
 import GalleryScreen from '../page-objects/screen/GalleryScreen';
+import { waitForFile } from '../helpers/fileCheck';
 
 describe('Tests with sending files', () => {
     after(async () => {
@@ -17,6 +18,12 @@ describe('Tests with sending files', () => {
         await GalleryScreen.openTestPhotoSettings();
         await GalleryScreen.openLinkToWindowsForm();
         await WindowsLinkScreen.clickShareFilesBtn();
-        await WindowsLinkScreen.verifyFileIsSend('Sent');
+        await WindowsLinkScreen.verifyFileIsSend();
+        await waitForFile(
+            'C:/Users/QA-user/Downloads/Phone Link',
+            'TestScreen.jpg',
+            20000
+        );
+        console.log(`✅ File received on PC`);
     });
 });

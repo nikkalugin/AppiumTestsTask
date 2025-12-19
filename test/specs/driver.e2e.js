@@ -1,11 +1,10 @@
-import { } from '@wdio/globals'
-import { terminateApp, activateApp, scrollDown, scrollUp } from '../helpers/appStatesHelper';
+import { driver } from '@wdio/globals'
+import { terminateApp, activateApp, scrollDown, scrollUp, zoomIn } from '../helpers/appStatesHelper';
 import WindowsLinkScreen from '../page-objects/screen/WindowsLinkScreen';
 import GalleryScreen from '../page-objects/screen/GalleryScreen';
 import { waitForFile, deleteFile } from '../helpers/fileCheck';
 
 describe('Tests with sending files', () => {
-
     let receivedFilePath;
 
     after(async () => {
@@ -32,5 +31,17 @@ describe('Tests with sending files', () => {
             20000
         );
         console.log(`File received on PC: ${receivedFilePath}`);
+    });
+});
+
+describe.only('Zooming photos', () => {
+    it('Zooming one photo', async () => {
+        await activateApp('com.sec.android.gallery3d');
+        await GalleryScreen.testScreenRecord.click();
+        await driver.pause(500);
+        await driver.saveScreenshot('./screens/before.png');
+        await zoomIn();
+        await driver.saveScreenshot('./screens/after.png');
+        await terminateApp('com.sec.android.gallery3d');
     });
 });

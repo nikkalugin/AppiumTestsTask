@@ -37,7 +37,7 @@ export async function scrollDown(times = 1) {
             await driver.releaseActions();
         }
     } catch (error) {
-        console.error(`Failed to open window ${error}`);
+        console.error(`Failed to scrolling down ${error}`);
         throw error;
     }
 }
@@ -64,7 +64,42 @@ export async function scrollUp(times = 1) {
             await driver.releaseActions();
         }
     } catch (error) {
-        console.error(`Failed to open advanced menu ${error}`);
+        console.error(`Failed to scrolling up ${error}`);
+        throw error;
+    }
+}
+
+export async function zoomIn() {
+    try {
+        await driver.performActions([
+            {
+                type: "pointer",
+                id: "finger1",
+                parameters: { pointerType: "touch" },
+                actions: [
+                    { type: "pointerMove", duration: 0, x: 540, y: 1000 },
+                    { type: "pointerDown", button: 0 },
+                    { type: "pause", duration: 500 },
+                    { type: "pointerMove", duration: 1000, x: 540, y: 300 },
+                    { type: "pointerUp", button: 0 }
+                ]
+            }, 
+            {
+                type: "pointer",
+                id: "finger2",
+                parameters: { pointerType: "touch" },
+                actions: [
+                    { type: "pointerMove", duration: 0, x: 540, y: 1100 },
+                    { type: "pointerDown", button: 0 },
+                    { type: "pause", duration: 500 },
+                    { type: "pointerMove", duration: 1000, x: 540, y: 1800 },
+                    { type: "pointerUp", button: 0 }
+                ]
+            }
+        ]);
+        await driver.releaseActions();
+    } catch (error) {
+        console.error(`Failed to zooming ${error}`);
         throw error;
     }
 }
